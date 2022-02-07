@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GoalInput from "./components/Goals/GoalInput/GoalInput";
 import GoalsList from "./components/Goals/GoalsList/GoalsList";
 import Login from "./components/Login/Login";
@@ -9,6 +9,10 @@ import Card from "./components/UI/Card/Card";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [goals, setGoals] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === "1") setIsLoggedIn(true);
+  }, []);
 
   const addGoalHandler = (enteredText) => {
     setGoals((prevGoals) => {
@@ -26,10 +30,12 @@ function App() {
   };
 
   const loginHandler = () => {
+    localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
+    localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   };
 
