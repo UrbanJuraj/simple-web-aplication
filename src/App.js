@@ -4,7 +4,7 @@ import Login from "./components/Login/Login";
 import MainHeader from "./components/MainHeader/MainHeader";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loginHandler = () => {
     setIsLoggedIn(true);
