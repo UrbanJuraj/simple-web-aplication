@@ -12,7 +12,6 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
-    console.log("tamjeee");
     setFormIsValid(
       enteredEmail.includes("@") && enteredPassword.trim().length > 7
     );
